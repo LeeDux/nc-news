@@ -40,3 +40,57 @@
 .read-the-docs {
   color: #888;
 }
+
+.nav-bar {
+  display: flex;
+  flex-direction: column;
+  flex-wrap: wrap;
+  width: 50%;
+  justify-items: center;
+  justify-content: space-between;
+  align-content: center;
+}
+
+.article-card {
+  margin: 20px;
+  padding: 15px;
+  border: 1px solid #ccc;
+}
+
+.article-header h2 {
+  font-size: 1.5em;
+}
+
+.article-body p {
+  font-size: 1em;
+  color: #555;
+}
+
+.read-more {
+  margin-top: 10px;
+}
+
+.read-more a {
+  text-decoration: none;
+  color: #007bff;
+}
+
+.item-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  border: 1px solid whitesmoke;
+  align-content: center;
+  margin: 10px auto;
+  padding: 10px;
+  justify-content: center;
+}
+
+.article-image {
+  display: flex;
+  flex-direction: wrap;
+  justify-content: space-around;
+  margin: 0 auto;
+  height: 200px;
+  width: 300px;
+}
