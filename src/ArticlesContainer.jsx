@@ -34,13 +34,8 @@ function ArticlesContainer() {
           {
             <ul>
               {articles.map((article) => {
-                console.log(article, "<---in map");
                 return (
-                  <ArticleCard
-                    key={article.article_id}
-                    article={article}
-                    // handleAddtoBasket={handleAddtoBasket}
-                  />
+                  <ArticleCard key={article.article_id} article={article} />
                 );
               })}
             </ul>

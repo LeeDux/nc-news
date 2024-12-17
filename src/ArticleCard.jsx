@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router-dom";
 
 function ArticleCard({ article }) {
   console.log("Article data in Card:", article);
@@ -23,8 +24,9 @@ function ArticleCard({ article }) {
         <p>{articleSnippet}...</p>
       </div>
       <div className="read-more">
-        {/* Placeholder for a future Link */}
-        <p>full article link</p>
+        <Link to={`/articles/${article.article_id}`}>
+          <button className="read-more-button">ReadMore</button>
+        </Link>
       </div>
     </div>
   );
