@@ -13,7 +13,6 @@ function ArticlesContainer() {
     setIsLoading(true);
     getArticles()
       .then((articlesArray) => {
-        console.log(articlesArray, "<--- in useEffect");
         setIsError(false);
         setArticles(articlesArray);
         setIsLoading(false);
