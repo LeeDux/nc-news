@@ -1,7 +1,13 @@
 import React from "react";
+import { useState } from "react";
+import AddVote from "./AddVote";
 
-function ArticlePageCard({ article }) {
-  console.log(article, "<---in articlepagecard");
+function ArticlePageCard({ article, setArticle }) {
+  const [votes, setVotes] = useState(article.votes);
+
+  const handleVoteUpdate = (newVotes) => {
+    setVotes(newVotes);
+  };
   return (
     <div className="article-card">
       <h1>{article.title}</h1>
@@ -17,6 +23,13 @@ function ArticlePageCard({ article }) {
       <p>Written by: {article.author}</p>
       <p>Published on: {article.created_at}</p>
       <p>Votes: {article.votes}</p>
+      <AddVote
+        article={article}
+        articleId={article.article_id}
+        setArticle={setArticle}
+        initialVotes={article.votes}
+        onVoteUpdate={handleVoteUpdate}
+      />
     </div>
   );
 }
