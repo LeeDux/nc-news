@@ -13,7 +13,23 @@ export default function getArticles() {
 
 export function getArticlesById(article_id) {
   return api.get(`/articles/${article_id}`).then(({ data }) => {
-    console.log(data.article, "<-- article by id in api");
     return data.article;
   });
+}
+
+export function getCommentsByArticleId(article_id) {
+  return api.get(`/articles/${article_id}/comments`).then(({ data }) => {
+    return data.comments;
+  });
+}
+
+export function updateVotes(article_id, incVotes) {
+  return api
+    .patch(`/articles/${article_id}`, { inc_votes: incVotes })
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      throw error;
+    });
 }

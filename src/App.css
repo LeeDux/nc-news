@@ -41,6 +41,31 @@
   color: #888;
 }
 
+
+header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 10px 20px;
+}
+
+header h1 {
+  font-size: 24px;
+  margin: 0;
+  color: whitesmoke;
+}
+
+.avatar {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 2px solid #fff;
+}
+
+header .avatar {
+  margin-left: 10px;
+
 .nav-bar {
   display: flex;
   flex-direction: column;
@@ -93,4 +118,5 @@
   margin: 0 auto;
   height: 200px;
   width: 300px;
+
 }
