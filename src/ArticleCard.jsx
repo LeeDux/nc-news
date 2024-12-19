@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 function ArticleCard({ article }) {
   console.log("Article data in Card:", article);
 
-  const maxLength = 50;
+  const maxLength = 100;
   const articleSnippet =
     typeof article.body === "string"
       ? article.body.substring(0, maxLength)
