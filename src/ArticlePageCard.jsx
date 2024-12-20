@@ -1,6 +1,7 @@
 import React from "react";
 import { useState } from "react";
 import AddVote from "./AddVote";
+import CommentForm from "./CommentForm";
 
 function ArticlePageCard({ article, setArticle }) {
   const [votes, setVotes] = useState(article.votes);

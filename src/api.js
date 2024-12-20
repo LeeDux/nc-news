@@ -11,6 +11,13 @@ export default function getArticles() {
   });
 }
 
+export function getTopics() {
+  return api.get("/topics").then(({ data }) => {
+    console.log(data.topics);
+    return data.topics;
+  });
+}
+
 export function getArticlesById(article_id) {
   return api.get(`/articles/${article_id}`).then(({ data }) => {
     return data.article;
@@ -30,6 +37,37 @@ export function updateVotes(article_id, incVotes) {
       return response.data;
     })
     .catch((error) => {
+      throw error;
+    });
+}
+
+export function postComment(article_id, commentData) {
+  console.log(commentData, "<-- in api");
+  return api
+    .post(`/articles/${article_id}/comments`, {
+      body: commentData.body,
+      username: commentData.author,
+    })
+    .then((response) => {
+      return response.data.comment;
+    })
+    .catch((error) => {
+      console.error(
+        "error posting comment:",
+        error.response?.data || error.message
+      );
+      throw error;
+    });
+}
+
+export function deleteComment(comment_id) {
+  return api
+    .delete(`/comments/${comment_id}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.error("problem deleting the comment:", error);
       throw error;
     });
 }

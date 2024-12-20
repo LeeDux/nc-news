@@ -26,7 +26,7 @@ function AddVote({
     setArticle((currentArticle) => {
       return { ...currentArticle, votes: newVotes };
     });
-    // Call the parent function to update the votes in the parent state
+
     updateVotes(articleId, voteType)
       .then((data) => {
         setIsLoading(false);

@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import ArticlePageCard from "./ArticlePageCard";
 import CommentCard from "./CommentCard";
 import { getArticlesById, getCommentsByArticleId } from "./api";
+import CommentForm from "./CommentForm";
 
 function ArticlePage() {
   const [article, setArticle] = useState([]);
@@ -40,6 +41,14 @@ function ArticlePage() {
     setShowComments((prevState) => !prevState);
   };
 
+  const deleteComment = (comment_id) => {
+    // Filter out the deleted comment from the list of comments
+    const updatedComments = comments.filter(
+      (comment) => comment.comment_id !== comment_id
+    );
+    setComments(updatedComments); // Update state to reflect deletion
+  };
+
   if (isLoading) {
     return <p>Loading articles...</p>;
   }
@@ -52,6 +61,13 @@ function ArticlePage() {
     <>
       <div className="article-page">
         <ArticlePageCard article={article} setArticle={setArticle} />
+        <div>
+          <CommentForm
+            articleId={article.article_id}
+            comments={comments}
+            setComments={setComments}
+          ></CommentForm>
+        </div>
 
         <div className="comments-section">
           <button onClick={toggleShowComments}>
@@ -61,7 +77,11 @@ function ArticlePage() {
             <div className="comments-list">
               {comments.length > 0 ? (
                 comments.map((comment) => (
-                  <CommentCard key={comment.comment_id} comment={comment} />
+                  <CommentCard
+                    key={comment.comment_id}
+                    comment={comment}
+                    onDelete={deleteComment}
+                  />
                 ))
               ) : (
                 <p>Be the first to comment...</p>
