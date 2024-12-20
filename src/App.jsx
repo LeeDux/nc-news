@@ -22,6 +22,11 @@ function App() {
         <Routes>
           <Route path="/" element={<ArticlesContainer articles={articles} />} />
 
+
+          <Route path="/articles/:article_id" element={<ArticlePage />} />
+        </Routes>
+      </UserProvider>
+
           <Route path="/articles/:article_id" element={<ArticlePage />} />
         </Routes>
       </UserProvider>
