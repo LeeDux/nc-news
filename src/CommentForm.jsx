@@ -6,10 +6,17 @@ function CommentForm({ articleId, comments, setComments }) {
   const { user } = useUser();
   console.log(user.username, "<-- commentForm");
   const [commentBody, setCommentBody] = useState("");
+  const [error, setError] = useState("");
 
   const handleCommentSubmit = (e) => {
     e.preventDefault();
-    if (!commentBody.trim()) return;
+    if (!commentBody.trim()) {
+      setError("Please enter a comment before submitting.");
+      return;
+    }
+
+    setError("");
+    setIsSubmitting(true);
 
     const newComment = {
       body: commentBody,
@@ -22,6 +29,7 @@ function CommentForm({ articleId, comments, setComments }) {
         setCommentBody("");
       })
       .catch((error) => {
+        setError("Error posting comment. Please try again later.");
         console.error("error posting comment:", error);
       });
   };
@@ -38,6 +46,7 @@ function CommentForm({ articleId, comments, setComments }) {
           ></textarea>
           <button type="submit"> Post Comment</button>
         </form>
+        {error && <p className="error-message">{error}</p>}
       </div>
     </>
   );

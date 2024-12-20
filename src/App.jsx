@@ -8,6 +8,7 @@ import ArticlesContainer from "./ArticlesContainer";
 import ArticlePage from "./ArticlePage";
 import TopicsPage from "./TopicsPage";
 import TopicArticlePage from "./TopicArticlePage";
+import NotFoundPage from "./NotFoundPage";
 
 function App() {
   const [articles, setArticles] = useState(0);
@@ -18,10 +19,10 @@ function App() {
       <NavBar></NavBar>
       <Routes>
         <Route path="/" element={<ArticlesContainer articles={articles} />} />
-
         <Route path="/articles/:article_id" element={<ArticlePage />} />
         <Route path="/topics" element={<TopicsPage />} />
         <Route path="/topics/:topicSlug" element={<TopicArticlePage />} />
+        <Route path="*" element={<NotFoundPage />} />
       </Routes>
     </>
   );

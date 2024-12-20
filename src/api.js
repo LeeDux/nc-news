@@ -35,16 +35,32 @@ export function getTopics() {
 }
 
 export function getArticlesByTopic(topicSlug) {
-  return api.get(`/articles?topic=${topicSlug}`).then(({ data }) => {
-    console.log(data.articles);
-    return data.articles;
-  });
+  return api
+    .get(`/articles?topic=${topicSlug}`)
+    .then(({ data }) => {
+      console.log(data.articles);
+      return data.articles;
+    })
+    .catch((error) => {
+      if (error.response && error.response.status === 404) {
+        throw new Error("Topic not found.");
+      }
+      throw error;
+    });
 }
 
 export function getArticlesById(article_id) {
-  return api.get(`/articles/${article_id}`).then(({ data }) => {
-    return data.article;
-  });
+  return api
+    .get(`/articles/${article_id}`)
+    .then(({ data }) => {
+      return data.article;
+    })
+    .catch((error) => {
+      if (error.response && error.response.status === 404) {
+        throw new Error("Article not found.");
+      }
+      throw error;
+    });
 }
 
 export function getCommentsByArticleId(article_id) {

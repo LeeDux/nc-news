@@ -12,6 +12,7 @@ function ArticlePage() {
   const { article_id } = useParams();
   const [isLoading, setIsLoading] = useState(false);
   const [showComments, setShowComments] = useState(false);
+  const [errorMessage, setErrorMessage] = useState("");
 
   useEffect(() => {
     setIsError(false);
@@ -24,6 +25,7 @@ function ArticlePage() {
       .catch((error) => {
         setIsError(true);
         return error;
+        setErrorMessage(error.message);
       });
 
     getCommentsByArticleId(article_id)
@@ -37,16 +39,23 @@ function ArticlePage() {
       });
   }, []);
 
+  if (isError) {
+    return (
+      <div className="error-container">
+        <h2>{errorMessage}</h2>
+      </div>
+    );
+  }
+
   const toggleShowComments = () => {
     setShowComments((prevState) => !prevState);
   };
 
   const deleteComment = (comment_id) => {
-    // Filter out the deleted comment from the list of comments
     const updatedComments = comments.filter(
       (comment) => comment.comment_id !== comment_id
     );
-    setComments(updatedComments); // Update state to reflect deletion
+    setComments(updatedComments);
   };
 
   if (isLoading) {
