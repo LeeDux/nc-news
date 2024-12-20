@@ -12,9 +12,22 @@ export default function getArticles() {
 }
 
 export function getTopics() {
-  return api.get("/topics").then(({ data }) => {
-    console.log(data.topics);
-    return data.topics;
+  return api
+    .get("/topics")
+    .then(({ data }) => {
+      console.log(data.topics);
+      return data.topics;
+    })
+    .catch((error) => {
+      console.error("error fetching topics", error);
+      throw error;
+    });
+}
+
+export function getArticlesByTopic(topicSlug) {
+  return api.get(`/articles?topic=${topicSlug}`).then(({ data }) => {
+    console.log(data.articles);
+    return data.articles;
   });
 }
 

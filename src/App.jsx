@@ -7,6 +7,7 @@ import "./App.css";
 import ArticlesContainer from "./ArticlesContainer";
 import ArticlePage from "./ArticlePage";
 import TopicsPage from "./TopicsPage";
+import TopicArticlePage from "./TopicArticlePage";
 
 function App() {
   const [articles, setArticles] = useState(0);
@@ -20,6 +21,7 @@ function App() {
 
         <Route path="/articles/:article_id" element={<ArticlePage />} />
         <Route path="/topics" element={<TopicsPage />} />
+        <Route path="/topics/:topicSlug" element={<TopicArticlePage />} />
       </Routes>
     </>
   );
