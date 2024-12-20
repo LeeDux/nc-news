@@ -11,6 +11,13 @@ export default function getArticles() {
   });
 }
 
+export function getTopics() {
+  return api.get("/topics").then(({ data }) => {
+    console.log(data.topics);
+    return data.topics;
+  });
+}
+
 export function getArticlesById(article_id) {
   return api.get(`/articles/${article_id}`).then(({ data }) => {
     return data.article;

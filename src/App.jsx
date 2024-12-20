@@ -5,6 +5,7 @@ import { Routes, Route } from "react-router-dom";
 import "./App.css";
 import ArticlesContainer from "./ArticlesContainer";
 import ArticlePage from "./ArticlePage";
+import TopicsPage from "./TopicsPage";
 
 function App() {
   const [articles, setArticles] = useState(0);
@@ -17,6 +18,7 @@ function App() {
         <Route path="/" element={<ArticlesContainer articles={articles} />} />
 
         <Route path="/articles/:article_id" element={<ArticlePage />} />
+        <Route path="/topics" element={<TopicsPage />} />
       </Routes>
     </>
   );
