@@ -7,6 +7,7 @@ function NavBar() {
       <nav className="nav-bar">
         <ul>
           <Link to={"/"}>Home</Link>
+          <Link to="/topics">Topics</Link>
         </ul>
       </nav>
     </>

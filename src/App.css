@@ -41,7 +41,7 @@
   color: #888;
 }
 
-
+/*Header*/
 header {
   display: flex;
   justify-content: space-between;
@@ -65,17 +65,40 @@ header h1 {
 
 header .avatar {
   margin-left: 10px;
-
-.nav-bar {
-  display: flex;
-  flex-direction: column;
-  flex-wrap: wrap;
-  width: 50%;
-  justify-items: center;
-  justify-content: space-between;
-  align-content: center;
 }
 
+/*NavBar*/
+.nav-bar {
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  width: 60%;
+  margin: 0 auto;
+}
+
+.nav-bar ul {
+  display: flex;
+  list-style: none;
+  padding: 0;
+  margin: 0;
+  gap: 20px;
+}
+
+.nav-bar li:last-child {
+  margin-right: 0;
+}
+
+.nav-bar a {
+  text-decoration: none;
+  color: whitesmoke;
+  font-weight: bold;
+}
+
+.nav-bar a:hover {
+  color: #4caf50;
+}
+
+/*ArticleCard*/
 .article-card {
   margin: 20px;
   padding: 15px;
@@ -100,6 +123,7 @@ header .avatar {
   color: #007bff;
 }
 
+/*ItemContainer*/
 .item-container {
   display: flex;
   flex-wrap: wrap;
@@ -118,5 +142,55 @@ header .avatar {
   margin: 0 auto;
   height: 200px;
   width: 300px;
+}
 
+/*TopicCard*/
+.topics-container {
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.topic-card {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  margin-bottom: 20px;
+  border: 1px solid #ccc;
+  padding: 10px;
+  background-color: #555;
+}
+
+.topic-card-content {
+  display: flex;
+  align-items: center;
+}
+
+.topic-card-image {
+  flex-shrink: 0;
+  margin-right: 20px;
+}
+
+.thumbnail {
+  width: 80px;
+  height: 80px;
+  object-fit: cover;
+}
+
+.topic-card-details {
+  flex-grow: 1;
+}
+
+.view-topic-button {
+  margin-top: 10px;
+  padding: 8px 12px;
+  background-color: #007bff;
+  color: white;
+  border: none;
+  cursor: pointer;
+}
+
+.view-topic-button:hover {
+  background-color: #0056b3;
 }
