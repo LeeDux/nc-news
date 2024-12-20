@@ -194,3 +194,18 @@ header .avatar {
 .view-topic-button:hover {
   background-color: #0056b3;
 }
+
+/*Sort by*/
+.sorting-controls {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+}
+
+.sorting-controls label {
+  margin-right: 10px;
+}
+
+.sorting-controls select {
+  margin-right: 20px;
+}

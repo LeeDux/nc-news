@@ -4,11 +4,21 @@ const api = axios.create({
   baseURL: "https://lees-nc-news-1e2i.onrender.com/api",
 });
 
-export default function getArticles() {
-  return api.get("/articles").then(({ data }) => {
-    console.log(data.articles);
-    return data.articles;
-  });
+export default function getArticles(sortBy = "created_at", order = "desc") {
+  return api
+    .get(`/articles`, {
+      params: {
+        sort_by: sortBy,
+        order: order,
+      },
+    })
+    .then(({ data }) => {
+      return data.articles;
+    })
+    .catch((error) => {
+      console.error("Error fetching articles:", error);
+      throw error;
+    });
 }
 
 export function getTopics() {
