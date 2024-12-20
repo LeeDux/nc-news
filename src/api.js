@@ -33,3 +33,34 @@ export function updateVotes(article_id, incVotes) {
       throw error;
     });
 }
+
+export function postComment(article_id, commentData) {
+  console.log(commentData, "<-- in api");
+  return api
+    .post(`/articles/${article_id}/comments`, {
+      body: commentData.body,
+      username: commentData.author,
+    })
+    .then((response) => {
+      return response.data.comment;
+    })
+    .catch((error) => {
+      console.error(
+        "error posting comment:",
+        error.response?.data || error.message
+      );
+      throw error;
+    });
+}
+
+export function deleteComment(comment_id) {
+  return api
+    .delete(`/comments/${comment_id}`)
+    .then((response) => {
+      return response.data;
+    })
+    .catch((error) => {
+      console.error("problem deleting the comment:", error);
+      throw error;
+    });
+}
