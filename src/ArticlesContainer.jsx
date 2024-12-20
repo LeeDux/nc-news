@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { useSearchParams } from "react-router-dom"; // To manage query params in URL
+import { useSearchParams } from "react-router-dom";
 import getArticles from "./api";
 import ArticleCard from "./ArticleCard";
 
@@ -7,9 +7,8 @@ function ArticlesContainer() {
   const [articles, setArticles] = useState([]);
   const [isLoading, setIsLoading] = useState(true);
   const [isError, setIsError] = useState(false);
-  const [searchParams, setSearchParams] = useSearchParams(); // React Router hook
+  const [searchParams, setSearchParams] = useSearchParams();
 
-  // Default sort values (can be adjusted as needed)
   const defaultSortBy = searchParams.get("sort_by") || "created_at";
   const defaultOrder = searchParams.get("order") || "desc";
 
@@ -33,7 +32,6 @@ function ArticlesContainer() {
       });
   }, [sortBy, order]);
 
-  // Handle sorting change
   const handleSortChange = (e) => {
     const { name, value } = e.target;
     if (name === "sortBy") {
@@ -43,7 +41,6 @@ function ArticlesContainer() {
     }
   };
 
-  // Update URL query params when sort/order changes
   useEffect(() => {
     setSearchParams({ sort_by: sortBy, order: order });
   }, [sortBy, order, setSearchParams]);
@@ -54,7 +51,7 @@ function ArticlesContainer() {
   return (
     <div>
       <h2>Articles</h2>
-      {/* Sorting Controls */}
+
       <div className="sorting-controls">
         <label htmlFor="sortBy">Sort By:</label>
         <select
@@ -79,7 +76,6 @@ function ArticlesContainer() {
         </select>
       </div>
 
-      {/* Render Article Cards */}
       <section className="item-container">
         <ul>
           {articles.map((article) => (
