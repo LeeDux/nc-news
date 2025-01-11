@@ -26,8 +26,8 @@ function CommentCard({ comment, onDelete }) {
     <>
       <div className="comment-card">
         <p>{comment.body}</p>
-        <p>By: {comment.author}</p>
-        <p>Posted on: {comment.created_at}</p>
+        <p className="author">By: {comment.author}</p>
+        <p className="created-at">Posted on: {comment.created_at}</p>
         {canDelete && (
           <button onClick={handleDelete} disabled={isDeleting}>
             {isDeleting ? "Deleting..." : "Delete"}

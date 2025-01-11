@@ -49,41 +49,41 @@ function ArticlesContainer() {
   if (isError) return <p>Error loading articles.</p>;
 
   return (
-    <div>
-      <h2>Articles</h2>
+    <div className="article-container">
+    <h2>Articles</h2>
 
-      <div className="sorting-controls">
-        <label htmlFor="sortBy">Sort By:</label>
-        <select
-          id="sortBy"
-          name="sortBy"
-          value={sortBy}
-          onChange={handleSortChange}
-        >
-          <option value="created_at">Date</option>
-          <option value="votes">Votes</option>
-        </select>
+    <div className="sorting-controls">
+      <label htmlFor="sortBy">Sort By:</label>
+      <select
+        id="sortBy"
+        name="sortBy"
+        value={sortBy}
+        onChange={handleSortChange}
+      >
+        <option value="created_at">Date</option>
+        <option value="votes">Votes</option>
+      </select>
 
-        <label htmlFor="order">Order:</label>
-        <select
-          id="order"
-          name="order"
-          value={order}
-          onChange={handleSortChange}
-        >
-          <option value="asc">Ascending</option>
-          <option value="desc">Descending</option>
-        </select>
-      </div>
-
-      <section className="item-container">
-        <ul>
-          {articles.map((article) => (
-            <ArticleCard key={article.article_id} article={article} />
-          ))}
-        </ul>
-      </section>
+      <label htmlFor="order">Order:</label>
+      <select
+        id="order"
+        name="order"
+        value={order}
+        onChange={handleSortChange}
+      >
+        <option value="asc">Ascending</option>
+        <option value="desc">Descending</option>
+      </select>
     </div>
+
+    <section className="item-container">
+      <ul>
+        {articles.map((article) => (
+          <ArticleCard key={article.article_id} article={article} />
+        ))}
+      </ul>
+    </section>
+  </div>
   );
 }
 

@@ -16,6 +16,13 @@ function TopicsCard({ topic, articles }) {
   return (
     <div className="topic-card">
       <div className="topic-card-content">
+        <h3>{topic.slug}</h3>
+        <div>
+          <p>{topic.description}</p>
+        </div>
+      </div>
+
+      <div className="topic-card-details">
         <div className="topic-card-image">
           {firstArticleImage && (
             <img
@@ -24,11 +31,6 @@ function TopicsCard({ topic, articles }) {
               className="thumbnail"
             />
           )}
-        </div>
-
-        <div className="topic-card-details">
-          <h3>{topic.slug}</h3>
-          <p>{topic.description}</p>
           <Link to={`/topics/${topic.slug}`}>
             <button className="view-topic-button">View Articles</button>
           </Link>

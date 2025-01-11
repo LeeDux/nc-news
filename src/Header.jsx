@@ -7,11 +7,13 @@ function Header() {
   return (
     <>
       <header>
-        <h1>NC News</h1>
+        <div>
+          <h1>NC News</h1>
+        </div>
         {user ? (
-          <div>
+          <div className="avatar-container">
             <img src={user.avatar_url} alt={user.username} className="avatar" />
-            <p>{user.name}</p>
+            <p className="user-name">{user.name}</p>
           </div>
         ) : (
           <p>Loading user...</p>

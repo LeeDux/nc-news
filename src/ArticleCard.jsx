@@ -12,23 +12,25 @@ function ArticleCard({ article }) {
 
   return (
     <div className="article-card">
-      <div className="article-header">
-        <h2>{article.title}</h2>
+    <div className="article-header">
+      <h2>{article.title}</h2>
+      <div className="article-body">
+        <p>{articleSnippet}...</p>
+      </div>
+    </div>
+    <div className="read-more">
+      <div className="article-image">
         <img
           src={article.article_img_url}
           alt={article.title}
           className="article-image"
         />
       </div>
-      <div className="article-body">
-        <p>{articleSnippet}...</p>
-      </div>
-      <div className="read-more">
-        <Link to={`/articles/${article.article_id}`}>
-          <button className="read-more-button">ReadMore</button>
-        </Link>
-      </div>
+      <Link to={`/articles/${article.article_id}`}>
+        <button className="read-more-button">ReadMore</button>
+      </Link>
     </div>
+  </div>
   );
 }
 
