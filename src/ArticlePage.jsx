@@ -68,38 +68,38 @@ function ArticlePage() {
 
   return (
     <>
-      <div className="article-page">
-        <ArticlePageCard article={article} setArticle={setArticle} />
-        <div>
-          <CommentForm
-            articleId={article.article_id}
-            comments={comments}
-            setComments={setComments}
-          ></CommentForm>
-        </div>
-
-        <div className="comments-section">
-          <button onClick={toggleShowComments}>
-            {showComments ? "Hide Comments" : "Show Comments"}
-          </button>
-          {showComments && (
-            <div className="comments-list">
-              {comments.length > 0 ? (
-                comments.map((comment) => (
-                  <CommentCard
-                    key={comment.comment_id}
-                    comment={comment}
-                    onDelete={deleteComment}
-                  />
-                ))
-              ) : (
-                <p>Be the first to comment...</p>
-              )}
-            </div>
-          )}
-        </div>
+    <div className="article-page">
+      <ArticlePageCard article={article} setArticle={setArticle} />
+      <div>
+        <CommentForm
+          articleId={article.article_id}
+          comments={comments}
+          setComments={setComments}
+        ></CommentForm>
       </div>
-    </>
+
+      <div className="comments-section">
+        <button onClick={toggleShowComments}>
+          {showComments ? "Hide Comments" : "Show Comments"}
+        </button>
+        {showComments && (
+          <div className="comments-list">
+            {comments.length > 0 ? (
+              comments.map((comment) => (
+                <CommentCard
+                  key={comment.comment_id}
+                  comment={comment}
+                  onDelete={deleteComment}
+                />
+              ))
+            ) : (
+              <p>Be the first to comment...</p>
+            )}
+          </div>
+        )}
+      </div>
+    </div>
+  </>
   );
 }
 
