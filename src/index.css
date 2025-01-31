@@ -13,6 +13,18 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html, body {
+  overflow-x: hidden;  /* Prevents horizontal scrolling */
+  overflow-y: auto;    /* Allows vertical scrolling */
+  width: 100%;
+  margin: 0;
+  padding: 0;
+  height: 100%;
+  scroll-behavior: unset;
+}
+
+
+
 a {
   font-weight: 500;
   color: #646cff;
@@ -24,10 +36,10 @@ a:hover {
 
 body {
   margin: 0;
-  display: flex;
-  place-items: center;
-  min-width: 320px;
-  min-height: 100vh;
+  width: 100%;
+  height: auto;
+  display: block; /* Default block layout allows scrolling */
+  min-height: 100%;
 }
 
 h1 {

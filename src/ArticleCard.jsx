@@ -14,10 +14,11 @@ function ArticleCard({ article }) {
     <div className="article-card">
     <div className="article-header">
       <h2>{article.title}</h2>
+    </div>
+    <div className="box-content">
       <div className="article-body">
         <p>{articleSnippet}...</p>
       </div>
-    </div>
     <div className="read-more">
       <div className="article-image">
         <img
@@ -29,6 +30,7 @@ function ArticleCard({ article }) {
       <Link to={`/articles/${article.article_id}`}>
         <button className="read-more-button">ReadMore</button>
       </Link>
+    </div>
     </div>
   </div>
   );

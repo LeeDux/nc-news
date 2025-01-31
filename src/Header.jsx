@@ -1,5 +1,6 @@
 import React from "react";
 import { useUser } from "./UserContext";
+import NavBar from "./Navbar";
 
 function Header() {
   const { user } = useUser();
@@ -9,6 +10,9 @@ function Header() {
       <header>
         <div>
           <h1>NC News</h1>
+        </div>
+        <div>
+          <NavBar></NavBar>
         </div>
         {user ? (
           <div className="avatar-container">
