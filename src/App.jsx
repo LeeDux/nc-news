@@ -16,7 +16,6 @@ function App() {
   return (
     <>
       <Header></Header>
-      <NavBar></NavBar>
       <Routes>
         <Route path="/" element={<ArticlesContainer articles={articles} />} />
         <Route path="/articles/:article_id" element={<ArticlePage />} />
