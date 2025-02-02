@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import { useSearchParams } from "react-router-dom";
 import getArticles from "./api";
 import ArticleCard from "./ArticleCard";
+import SkeletonArticleCard from "./SkeletonArticleCard";
 
 function ArticlesContainer() {
   const [articles, setArticles] = useState([]);
@@ -45,7 +46,7 @@ function ArticlesContainer() {
     setSearchParams({ sort_by: sortBy, order: order });
   }, [sortBy, order, setSearchParams]);
 
-  if (isLoading) return <p>Loading articles...</p>;
+ /*  if (isLoading) return <p>Loading articles...</p>; */
   if (isError) return <p>Error loading articles.</p>;
 
   return (
@@ -77,11 +78,13 @@ function ArticlesContainer() {
     </div>
 
     <section className="item-container">
-      <ul>
-        {articles.map((article) => (
-          <ArticleCard key={article.article_id} article={article} />
-        ))}
-      </ul>
+    <ul>
+          {isLoading
+            ? Array(5) // Show 5 skeleton cards while loading
+                .fill(0)
+                .map((_, index) => <SkeletonArticleCard key={index} />)
+            : articles.map((article) => <ArticleCard key={article.article_id} article={article} />)}
+        </ul>
     </section>
   </div>
   );

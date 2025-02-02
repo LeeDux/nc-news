@@ -67,19 +67,20 @@ function ArticlePage() {
   console.log(article.article_id, "<--- in article page");
 
   return (
-    <>
     <div className="article-page">
+      {/* Article Card Section */}
       <ArticlePageCard article={article} setArticle={setArticle} />
-      <div>
-        <CommentForm
-          articleId={article.article_id}
-          comments={comments}
-          setComments={setComments}
-        ></CommentForm>
-      </div>
 
+      {/* Comment Form */}
+      <CommentForm
+        articleId={article.article_id}
+        comments={comments}
+        setComments={setComments}
+      />
+
+      {/* Comments Section */}
       <div className="comments-section">
-        <button onClick={toggleShowComments}>
+        <button className="toggle-comments-btn" onClick={toggleShowComments}>
           {showComments ? "Hide Comments" : "Show Comments"}
         </button>
         {showComments && (
@@ -93,13 +94,12 @@ function ArticlePage() {
                 />
               ))
             ) : (
-              <p>Be the first to comment...</p>
+              <p className="no-comments-text">Be the first to comment...</p>
             )}
           </div>
         )}
       </div>
     </div>
-  </>
   );
 }
 
