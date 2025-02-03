@@ -27,9 +27,11 @@ function ArticlePageCard({ article, setArticle }) {
 
 
   return (
-    <div className="article-card">
+    <div className="article-page-card">
       <div className="article-header">
         <h2>{article.title}</h2>
+      </div>
+      <div>
         <div>
           <p className="article-body">{article.body}</p>
         </div>
@@ -37,8 +39,6 @@ function ArticlePageCard({ article, setArticle }) {
           <p>Written by: {article.author}</p>
           <p>Published on: {formatDate(article.created_at)}</p>
         </div>
-      </div>
-      <div>
         <img
           src={article.article_img_url}
           alt={article.title}
