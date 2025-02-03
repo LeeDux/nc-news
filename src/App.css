@@ -1,6 +1,6 @@
-* {
+/* * {
   outline: 1px solid red;
-}
+} */
 
 #root {
   max-width: 100%;
@@ -111,16 +111,82 @@ header h1 {
 }
 
 .article-page-card {
-  width: 100%;
+  display: flex;
+  flex-direction: column;
   background-color: #1a1a1a;
   border-radius: 8px;
   padding: 20px;
-  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
+  margin-bottom: 20px;
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+  width: 100%;
+  max-width: 800px;
+}
+
+.article-page-card .article-header {
+  text-align: center;
+  margin-bottom: 15px;
+}
+
+.article-page-card .article-header h2 {
+  font-size: 1.8em;
+  color: #fff;
+  margin-bottom: 10px;
+}
+
+.article-page-card .article-body {
+  text-align: justify;
+  font-size: 1.1em;
+  color: whitesmoke;
+  line-height: 1.6;
+  margin-bottom: 15px;
+}
+
+.article-page-card .article-image {
+  display: block;
+  width: 100%;
+  max-width: 100%;
+  height: auto;
+  border-radius: 8px;
+  object-fit: cover;
+  margin: 15px 0;
+}
+
+.article-footer {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1em;
+  color: #ccc;
+  padding-top: 10px;
+}
+
+.article-footer p {
+  margin: 5px 0;
+}
+
+.votes {
+  font-weight: bold;
+  color: #1eb7dd;
+}
+
+.vote-button {
+  background-color: #444;
+  color: white;
+  border: none;
+  padding: 10px 15px;
+  border-radius: 5px;
+  cursor: pointer;
+  transition: background 0.3s ease;
+  margin: 2px;
+}
+
+.vote-button:hover {
+  background-color: #3874c3;
 }
 
 .comments-section {
   width: 100%;
-  background-color: #f9f9f9;
+  background-color: #1a1a1a;
   padding: 20px;
   border-radius: 8px;
   box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.1);
@@ -173,15 +239,7 @@ header h1 {
 }
 
 /*ArticleCard*/
-/* .article-card {
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  margin: 20px 0;
-  padding: 15px;
-  border-radius: 8px;
-  border: 1px solid #ccc;
-} */
+
 
 .box-content {
   display: flex;
@@ -196,10 +254,9 @@ header h1 {
   flex-direction: column;
   align-items: center;
   background-color: #1a1a1a;
-  border: 1px solid #ddd;
   padding: 15px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
   width: 80%;
   
   box-sizing: border-box;
@@ -251,14 +308,14 @@ header h1 {
 .read-more {
   display: flex;
   flex-direction: column;
-  align-items: center; /* Centers the image & button */
-  justify-content: space-between; /* Spreads items out */
+  align-items: center; 
+  justify-content: space-between; 
   flex: 1; 
 }
 
 .read-more .read-more-button {
   padding: 10px 20px;
-  background-color: #555;
+  background-color: #444;
   color: whitesmoke;
   border: none;
   border-radius: 5px;
@@ -266,7 +323,7 @@ header h1 {
 }
 
 .read-more .read-more-button:hover {
-  background-color: #007bff;
+  background-color: #3874c3;
 }
 
 .read-more a {
@@ -299,6 +356,7 @@ header h1 {
 /*TopicCard*/
 .topics-container {
   display: flex;
+  align-items: center;
   flex-wrap: wrap;
   flex-direction: column;
   gap: 16px;
@@ -310,11 +368,11 @@ header h1 {
   align-items: flex-start;
   justify-content: space-between;
   margin-bottom: 20px;
-  border: 1px solid #ccc;
   padding: 20px;
   border-radius: 5px;
   width: 100%;
   max-width: 700px;
+  box-shadow: 0px 5px 10px rgba(0, 0, 0, 0.2);
 }
 
 .topic-card-content {
@@ -356,7 +414,7 @@ header h1 {
 
 .view-topic-button {
   padding: 8px 12px;
-  background-color: #555;
+  background-color: #444;
   color: white;
   border: none;
   cursor: pointer;
@@ -365,7 +423,7 @@ header h1 {
 }
 
 .view-topic-button:hover {
-  background-color: #0056b3;
+  background-color: #3874c3;
 }
 
 .view-topic-button:focus {
@@ -427,7 +485,7 @@ header h1 {
 }
 
 .comment-card button {
-  background-color: #1916ca;
+  background-color: #444;
   color: white;
   border: none;
   padding: 8px 12px;
@@ -444,7 +502,7 @@ header h1 {
 }
 
 .comment-card button:hover:not(:disabled) {
-  background-color: #1eb7dd;
+  background-color: #3874c3;
 }
 
 .comment-card button:focus {
@@ -454,10 +512,10 @@ header h1 {
 
 /*comment form*/
 .comments-section {
-  background-color: #f9f9f9;
+  background-color: #1a1a1a;
   padding: 20px;
   border-radius: 8px;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
   margin-top: 20px;
   width: 100%;
   max-width: 600px;
@@ -467,7 +525,7 @@ header h1 {
 
 .comments-section h3 {
   font-size: 1.5rem;
-  color: #333;
+  color: white;
   margin-bottom: 15px;
   font-weight: 600;
 }
@@ -494,7 +552,7 @@ header h1 {
 }
 
 .comments-section button {
-  background-color: #4c8bf5;
+  background-color: #444;
   color: white;
   padding: 10px 15px;
   border: none;
@@ -521,7 +579,7 @@ header h1 {
 
 /*skeleton card*/
 .skeleton {
-  background: #f3f3f3;
+  background: #555;
   border-radius: 8px;
   padding: 16px;
   margin-bottom: 20px;
@@ -529,7 +587,7 @@ header h1 {
 }
 
 .skeleton-box {
-  background: #e0e0e0;
+  background: #444;
   border-radius: 4px;
 }
 
@@ -703,4 +761,69 @@ header h1 {
     margin: 0 auto;
     margin-right: 10px;
   }
+
+  @media (max-width: 768px) {
+    .topics-container {
+      flex-direction: column;
+      align-items: center;
+    }
+  
+    .topic-card {
+      width: 90%;
+      max-width: 400px;
+    }
+  
+    .topic-card-content {
+      text-align: center;
+      width: 100%;
+    }
+    .article-page-card {
+      padding: 15px;
+      max-width: 90%;
+    }
+  
+    .article-page-card .article-header h2 {
+      font-size: 1.5em;
+    }
+  
+    .article-page-card .article-body {
+      font-size: 1em;
+    }
+  }
+  
+  @media (max-width: 480px) {
+    .topic-card {
+      width: 95%;
+      padding: 15px;
+    }
+  
+    .topic-card-content h3 {
+      font-size: 1.2rem;
+    }
+  
+    .topic-card-image img {
+      max-width: 120px;
+    }
+
+    .article-page-card {
+      padding: 10px;
+      max-width: 95%;
+    }
+  
+    .article-page-card .article-header h2 {
+      font-size: 1.3em;
+    }
+  
+    .article-page-card .article-body {
+      font-size: 0.95em;
+    }
+  
+    .article-page-card .article-image {
+      max-height: 180px;
+    }
+  }
+
+  
 }
+
+
