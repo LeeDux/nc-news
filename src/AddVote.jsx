@@ -41,10 +41,10 @@ function AddVote({
 
   return (
     <div>
-      <button onClick={() => handleVote(1)} disabled={isLoading}>
+      <button className="vote-button" onClick={() => handleVote(1)} disabled={isLoading}>
         {isLoading ? "Updating..." : "Upvote"}
       </button>
-      <button onClick={() => handleVote(-1)} disabled={isLoading}>
+      <button className="vote-button" onClick={() => handleVote(-1)} disabled={isLoading}>
         {isLoading ? "Updating..." : "Downvote"}
       </button>
     </div>

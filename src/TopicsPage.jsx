@@ -41,8 +41,8 @@ function TopicsPage() {
 
   return (
     <div>
-      <h2>Topics</h2>
       <div className="topics-container">
+      <h2 className="topics-page-title">Topics</h2>
         {topics.map((topic) => (
           <TopicsCard key={topic.slug} topic={topic} articles={articles} />
         ))}
