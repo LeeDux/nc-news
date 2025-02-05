@@ -1,4 +1,4 @@
-NC News Frontend
+NC News Frontend - URL: https://ld-news.netlify.app
 
 This is the frontend of the NC News application, a news aggregation platform built with React. Users can view articles, vote on them, and comment on them. The frontend communicates with the backend to fetch data about articles, topics, comments, and more.
 Features
